@@ -36,7 +36,7 @@ export function LitecoinForm({ onSubmit }: LitecoinFormProps) {
       scan: 20,
       userKey: '',
       userKeyId: '',
-      feeRate: 50
+      feeRate: 85
     },
     validationSchema,
   });
