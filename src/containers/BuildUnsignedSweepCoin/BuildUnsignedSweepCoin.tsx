@@ -789,10 +789,12 @@ function Form() {
                 coin,
                 values.apiKey
               );
+              const currentFee = values.feeRate ? Number(values.feeRate) * 250 : 25000;
               const chainData = await window.queries.getChain(coin);
               const recoverData = await window.commands.recover(coin, {
                 ...(await updateKeysFromIds(coin, values)),
                 scan: Number(values.scan),
+                feeRate: currentFee,
                 bitgoKey: values.bitgoKey.replace(/\s+/g, ''),
                 ignoreAddressTypes: [],
               });

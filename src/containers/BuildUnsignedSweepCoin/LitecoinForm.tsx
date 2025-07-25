@@ -12,6 +12,7 @@ const validationSchema = Yup.object({
   scan: Yup.number().required(),
   userKey: Yup.string().required(),
   userKeyId: Yup.string(),
+  feeRate: Yup.number(),
 }).required();
 
 export type LitecoinFormProps = {
@@ -35,6 +36,7 @@ export function LitecoinForm({ onSubmit }: LitecoinFormProps) {
       scan: 20,
       userKey: '',
       userKeyId: '',
+      feeRate: 50
     },
     validationSchema,
   });
@@ -106,6 +108,14 @@ export function LitecoinForm({ onSubmit }: LitecoinFormProps) {
             HelperText="An Api-Key Token from blockchair.com required for mainnet recoveries of this coin."
             Label="API Key"
             name="apiKey"
+            Width="fill"
+          />
+        </div>
+        <div className="tw-mb-4">
+          <FormikTextfield
+            HelperText="Fee Rate, currently its formular Number(feeRate) * 250 : 25000"
+            Label="Fee Rate"
+            name="feeRate"
             Width="fill"
           />
         </div>
